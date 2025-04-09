@@ -1,4 +1,5 @@
 const express = require("express");
+const cors = require("cors");
 const { initializeDatabase } = require("./db/db.connect");
 const { book } = require("./models/book.model");
 require("dotenv").config();
@@ -6,6 +7,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
+app.use(cors());
 app.listen(PORT, () => {
     console.log("The server is running");
 });
